@@ -1,0 +1,33 @@
+🎯 Recently Cracked an OTP Bypass on a Live E-Commerce Site! 🧨
+ While digging into the registration flow on an e-commerce platform, I spotted a classic yet critical vulnerability — OTP reflection via Burp Suite! 🚨
+
+🔍 Vulnerability Discovered: OTP Reflection in HTTP Response
+ During intercept analysis with Burp Suite, the OTP verification response ("OTP is valid.") was clearly exposed in plaintext — right in the HTTP body.
+ I intercepted the request and simply flipped the response from:
+
+{ "status": false, "message": "OTP is invalid." }
+
+{ "status": true, "message": "OTP is valid." }
+
+Then retried with manipulated logic — bypassed successfully, no actual OTP needed from SMS! 🔓
+
+🔥 Root Cause
+OTP directly reflected in response.
+No strict server-side validation.
+Overreliance on client-side trust.
+
+⚠️ Impact
+Full account takeover possible.
+Fraudulent account creations.
+Huge blow to customer trust & platform integrity.
+
+🧠 Takeaways for Devs & Security Teams
+✅ Don’t reflect OTPs or sensitive info in responses.
+ ✅ Always validate OTPs on the server-side.
+ ✅ Harden APIs against client-side manipulation.
+
+💡 Pro Tip:
+A simple interceptor and a logic tweak was all it took — never underestimate the small flaws!
+ Shoutout to the power of Burp Suite and a bit of curiosity-driven testing.
+🛡️ Stay safe, stay sharp!
+ hashtag#CyberSecurity hashtag#BugBounty hashtag#BurpSuite hashtag#OTPBreach hashtag#EthicalHacking hashtag#WebAppSecurity hashtag#Infosec hashtag#HackerMindset hashtag#VAPT hashtag#OWASP
